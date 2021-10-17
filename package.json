@@ -1,0 +1,17 @@
+{
+  "name": "crypto-sms",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.22.0",
+    "dotenv": "^10.0.0",
+    "node-rsa": "1.1.1",
+    "firebase": "^9.1.1"
+  },
+  "devDependencies": {
+    "netlify-cli": "^3.4.5"
+  },
+  "scripts": {
+		"curl": "curl -X POST --data '@request.json' localhost:8888/api/verify"
+  }
+}
