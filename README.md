@@ -31,3 +31,20 @@ or under:
 Deploys happen automatically after you push code to master branch.
 
 Look at existing endpoints for inspiration.
+
+## Testing
+
+Use curl like this:
+
+`$ curl https://crypto-sms.netlify.app/api/endpoint` 
+
+or
+
+`$ curl localhost:8888/api/endpoint` 
+
+to check if your endpoint is up. 
+
+To test post request with data in request.json file:
+
+`$ curl -X POST --data-binary "@request.json" localhost:8888/api/endpoint`
+
