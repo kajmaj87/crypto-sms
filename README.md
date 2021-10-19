@@ -1,5 +1,9 @@
 # crypto-sms
 
+## What is it
+
+This is the backend side done as part of Asseco Fintech Hackaton 2021.
+
 ## Setup
 
 You need two things, first install all dependencies from project directory:
