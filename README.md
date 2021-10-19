@@ -32,7 +32,9 @@ Deploys happen automatically after you push code to master branch.
 
 **Do not develop directly on master, use your own branches for new features**
 
-Look at existing endpoints for inspiration.
+Look at existing endpoints for inspiration. 
+
+To you  will see all console.log statements in console where netlify dev is running.
 
 ## Testing
 
