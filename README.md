@@ -30,6 +30,8 @@ or under:
 
 Deploys happen automatically after you push code to master branch.
 
+**Do not develop directly on master, use your own branches for new features**
+
 Look at existing endpoints for inspiration.
 
 ## Testing
