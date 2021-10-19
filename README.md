@@ -8,7 +8,7 @@ You need two things, first install all dependencies from project directory:
 
 You also need netlify cli:
 
-`$ npm install -g netlify-cli`
+`$ sudo npm install -g netlify-cli`
 
 After this is complete you can start local server using:
 
