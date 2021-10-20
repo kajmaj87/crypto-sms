@@ -54,5 +54,5 @@ to check if your endpoint is up.
 
 To test post request with data in request.json file:
 
-`$ curl -X POST --data-binary "@request.json" localhost:8888/api/endpoint`
+`$ curl -X POST --data-binary "@./resources/request.json" localhost:8888/api/endpoint`
 

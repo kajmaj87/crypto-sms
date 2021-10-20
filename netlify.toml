@@ -12,3 +12,6 @@ NODE_VERSION = "14.16.0"
 
 [functions]
 node_bundler = "esbuild"
+
+[functions."certListChecker"]
+included_files = ["./resources/certList.json"]
