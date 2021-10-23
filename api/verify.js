@@ -63,6 +63,12 @@ const handler = async (event) => {
             const key = certificates.docs
                 .map(doc => doc.data())
                 .find(id_matches)
+            if (!key) {
+                return {
+                    statusCode: 400,
+                    body: "Key with id = " + request.id + " not found."
+                }
+            }
             const key_public = new NodeRSA().importKey(key.public_key);
             const verification = key_public.verify(request.text, request.signature, "utf8", "base64");
             console.log('key size, verified, signature, s lenght', verification, request.signature.length, request.signature)
