@@ -1,4 +1,7 @@
 const NodeRSA = require('node-rsa');
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { collection, doc, getDocs, getFirestore } from 'firebase/firestore/lite';
 
 // verify / POST {
 //     id: ingpl/+48123456789
@@ -35,6 +38,18 @@ JGajs0gylHCcyqsIcPRG00LylfridYjoFyQdwtJoBg==
 -----END RSA PRIVATE KEY-----
 `
 
+const firebaseConfig = {
+    apiKey: "AIzaSyDQoQ7Ji0neXtx0uDo2So5tTlJswa7W-4k",
+    authDomain: "sarmackatarcza.firebaseapp.com",
+    projectId: "sarmackatarcza",
+    storageBucket: "sarmackatarcza.appspot.com",
+    messagingSenderId: "535788865907",
+    appId: "1:535788865907:web:6f05ca00449525b4041d06",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
 const handler = async (event) => {
     if (event.httpMethod === 'POST') {
         try {
@@ -42,10 +57,15 @@ const handler = async (event) => {
             var request = JSON.parse(event.body)
             console.log(request)
 
-            var size = 768
-            const key_public = new NodeRSA().importKey(public_key);
+            db = getFirestore(app)
+            const certificates = await getDocs(collection(db, 'certificates')),
+            id_matches = doc => request.id == doc.id
+            const key = certificates.docs
+                .map(doc => doc.data())
+                .find(id_matches)
+            const key_public = new NodeRSA().importKey(key.public_key);
             const verification = key_public.verify(request.text, request.signature, "utf8", "base64");
-            console.log('key size, verified, signature, s lenght', size, verification, request.signature.length, request.signature)
+            console.log('key size, verified, signature, s lenght', verification, request.signature.length, request.signature)
             return {
                 statusCode: 200,
                 body: JSON.stringify({ "message_valid": verification})
